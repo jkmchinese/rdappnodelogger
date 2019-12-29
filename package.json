@@ -2,29 +2,87 @@
 	"name": "rdappnodelogger",
 	"displayName": "rdappnodelogger",
 	"description": "rdapp node logger",
-	"version": "0.0.1",
+	"version": "1.0.0",
+	"publisher": "rdapp",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
 	"categories": [
-		"Other"
+		"Snippets"
 	],
+	"icon": "images/logo.png",
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.errorLog",
+		"onCommand:extension.warnLog",
+		"onCommand:extension.infoLog",
+		"onCommand:extension.verboseLog",
+		"onCommand:extension.debugLog",
+		"onCommand:extension.sillyLog"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.errorLog",
+				"title": "Rdapp error log"
+			},
+			{
+				"command": "extension.warnLog",
+				"title": "Rdapp warn log"
+			},
+			{
+				"command": "extension.infoLog",
+				"title": "Rdapp info log"
+			},
+			{
+				"command": "extension.verboseLog",
+				"title": "Rdapp verbose log"
+			},
+			{
+				"command": "extension.debugLog",
+				"title": "Rdapp debug log"
+			},
+			{
+				"command": "extension.sillyLog",
+				"title": "Rdapp silly log"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "extension.helloWorld",
+				"command": "extension.errorLog",
+				"key": "alt+l alt+e",
+				"mac": "alt+l alt+e"
+			},
+			{
+				"command": "extension.warnLog",
+				"key": "alt+l alt+w",
+				"mac": "alt+l alt+w"
+			},
+			{
+				"command": "extension.infoLog",
+				"key": "alt+l alt+i",
+				"mac": "alt+l alt+i"
+			},
+			{
+				"command": "extension.verboseLog",
+				"key": "alt+l alt+v",
+				"mac": "alt+l alt+v"
+			},
+			{
+				"command": "extension.debugLog",
 				"key": "alt+l alt+d",
 				"mac": "alt+l alt+d"
+			},
+			{
+				"command": "extension.sillyLog",
+				"key": "alt+l alt+s",
+				"mac": "alt+l alt+s"
+			}
+		],
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets/logger.json"
 			}
 		]
 	},
@@ -41,5 +99,9 @@
 		"mocha": "^6.2.2",
 		"typescript": "^3.6.4",
 		"vscode-test": "^1.2.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jkmchinese/rdappnodelogger.git"
 	}
 }

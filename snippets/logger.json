@@ -1,0 +1,32 @@
+{
+	"rdapp node error log": {
+		"prefix": "gerror",
+		"body": ["logger.error(`${trace()}:${1:cache err}:%o`, ${2:err});${0}"],
+		"description": "rdapp node error log"
+	},
+	"rdapp node warn log": {
+		"prefix": "gwarn",
+		"body": ["logger.warn(`${trace()}:${1}:%o`, ${2});${0}"],
+		"description": "rdapp node warn log"
+	},
+	"rdapp node info log": {
+		"prefix": "ginfo",
+		"body": ["logger.info(`${trace()}:${1}:%o`, ${2});${0}"],
+		"description": "rdapp node info log"
+	},
+	"rdapp node verbose log": {
+		"prefix": "gverbose",
+		"body": ["logger.verbose(`${trace()}:${1}:%o`, ${2});${0}"],
+		"description": "rdapp node verbose log"
+	},
+	"rdapp node debug log": {
+		"prefix": "gdebug",
+		"body": ["logger.debug(`${trace()}:${1}:%o`, ${2});${0}"],
+		"description": "rdapp node debug log"
+	},
+	"rdapp node silly log": {
+		"prefix": "gsilly",
+		"body": ["logger.silly(`${trace()}:${1}:%o`, ${2});${0}"],
+		"description": "rdapp node silly log"
+	}
+}

@@ -6,63 +6,82 @@ const os = require('os');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
+async function logMsg(level) {
+	const editor = vscode.window.activeTextEditor;
+	if (!editor) {
+		return;
+	}
+
+	const selectedText = editor.document.getText(editor.selection);
+	if (selectedText.trim().length === 0) {
+		return;
+	}
+
+	await editor.edit(editBuilder => {
+		const logMsg = `logger.${level}(\`\${trace()}:${selectedText}:%o\`, ${selectedText});`;
+
+		let nextLine = editor.selection.active.line + 1;
+		let whiteSpace = "";
+
+		const currentLine = editor.document.lineAt(editor.selection.active.line);
+		// console.log('rd: activate -> firstNonWhitespaceCharacterIndex:', currentLine.firstNonWhitespaceCharacterIndex);
+		for (let index = 0; index < currentLine.firstNonWhitespaceCharacterIndex; index++) {
+			whiteSpace += " ";
+		}
+
+
+		if (nextLine >= editor.document.lineCount) {
+			editBuilder.insert(
+				new vscode.Position(nextLine, 0),
+				`${os.EOL}${whiteSpace}${logMsg}`);
+		}
+		else {
+			editBuilder.insert(
+				new vscode.Position(nextLine, 0),
+				`${whiteSpace}${logMsg}${os.EOL}`);
+		}
+	});
+}
+
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "rdappnodelogger" is now active!');
+	console.log('Congratulations, "rdappnodelogger" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld',
+	let errorLog = vscode.commands.registerCommand('extension.errorLog',
 		async () => {
-			// The code you place here will be executed every time your command is executed
-
-			// Display a message box to the user
-			// vscode.window.showInformationMessage(`${new Date().toLocaleTimeString()}`);
-
-			const editor = vscode.window.activeTextEditor;
-			if (!editor) {
-				return;
-			}
-
-			const selectedText = editor.document.getText(editor.selection);
-			if (selectedText.trim().length === 0) {
-				return;
-			}
-
-			await editor.edit(editBuilder => {
-				const level = 'info';
-				const logMsg = `logger.${level}(\`\${trace()}:%o\`, ${selectedText});`;
-
-				let nextLine = editor.selection.active.line + 1;
-				let whiteSpace = "";
-
-				const currentLine = editor.document.lineAt(editor.selection.active.line);
-				console.log('rd: activate -> firstNonWhitespaceCharacterIndex:', currentLine.firstNonWhitespaceCharacterIndex);
-				for (let index = 0; index < currentLine.firstNonWhitespaceCharacterIndex; index++) {
-					whiteSpace += " ";
-				}
-
-
-				if (nextLine >= editor.document.lineCount) {
-					editBuilder.insert(
-						new vscode.Position(nextLine, 0),
-						`${os.EOL}${whiteSpace}${logMsg}`);
-				}
-				else {
-					editBuilder.insert(
-						new vscode.Position(nextLine, 0),
-						`${whiteSpace}${logMsg}${os.EOL}`);
-				}
-			});
+			await logMsg('error');
+		});
+	let warnLog = vscode.commands.registerCommand('extension.warnLog',
+		async () => {
+			await logMsg('warn');
+		});
+	let infoLog = vscode.commands.registerCommand('extension.infoLog',
+		async () => {
+			await logMsg('info');
+		});
+	let verboseLog = vscode.commands.registerCommand('extension.verboseLog',
+		async () => {
+			await logMsg('verbose');
+		});
+	let debugLog = vscode.commands.registerCommand('extension.debugLog',
+		async () => {
+			await logMsg('debug');
+		});
+	let sillyLog = vscode.commands.registerCommand('extension.sillyLog',
+		async () => {
+			await logMsg('silly');
 		});
 
-	context.subscriptions.push(disposable);
+
+	context.subscriptions.push(errorLog);
+	context.subscriptions.push(warnLog);
+	context.subscriptions.push(infoLog);
+	context.subscriptions.push(verboseLog);
+	context.subscriptions.push(debugLog);
+	context.subscriptions.push(sillyLog);
 }
 exports.activate = activate;
 

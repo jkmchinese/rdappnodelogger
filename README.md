@@ -1,65 +1,78 @@
-# rdappnodelogger README
+## Main Functionality
 
-This is the README for your extension "rdappnodelogger". After writing up a brief description, we recommend including the following sections.
+---
+
+This extension make logging message in node development much easier by automating the operation of writing meaningful log message.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+---
 
-For example if there is an image subfolder under your extension project workspace:
+1. code snippets
+1. keyboard shortcuts
+1. vscode commands
 
-\!\[feature X\]\(images/feature-x.png\)
+```javascript
+const student = { id: 'GN0217', name: 'chenzhifen' };
+```
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Code Snippets:
 
-## Requirements
+- gerror : `` logger.error(`${trace()}:student:%o`, student); ``
+- gwarn : `` logger.warn(`${trace()}:student:%o`, student); ``
+- ginfo : `` logger.info(`${trace()}:student:%o`, student); ``
+- gverbose : `` logger.verbose(`${trace()}:student:%o`, student); ``
+- gdebug : `` logger.debug(`${trace()}:student:%o`, student); ``
+- gsilly : `` logger.silly(`${trace()}:student:%o`, student); ``
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+keyboard shortcuts
 
-## Extension Settings
+- alt + l , alt + e : **gerror**
+- alt + l , alt + w : **gwarn**
+- alt + l , alt + i : **ginfo**
+- alt + l , alt + v : **gverbose**
+- alt + l , alt + d : **gdebug**
+- alt + l , alt + s : **gsilly**
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+vscode commands
 
-For example:
+- Rdapp error log : **gerror**
+- Rdapp warn log : **gwarn**
+- Rdapp info log : **ginfo**
+- Rdapp verbose log : **gverbose**
+- Rdapp debug log : **gdebug**
+- Rdapp silly log : **gsilly**
 
-This extension contributes the following settings:
+**_Warning:_**
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+The extension rely on node project and using winston logger!!!
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+---
 
 ### 1.0.0
 
-Initial release of ...
+Initial release of rdappnodelogger
 
-### 1.0.1
+## Participate
 
-Fixed issue #.
+---
 
-### 1.1.0
+You're more than welcome to participate in the development of the extension by creating pull requests and submitting issues, link of the project in github: https://github.com/Chakroun-Anas/turbo-console-log
 
-Added features X, Y, and Z.
+## Contact
 
------------------------------------------------------------------------------------------------------------
+---
 
-## Working with Markdown
+You can contact me on the following mail: chenzhifen@genew.com
 
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+## License
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+---
 
-### For more information
+MIT &copy; rdapp
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+---
 
 **Enjoy!**
