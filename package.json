@@ -3,7 +3,7 @@
 	"displayName": "rdappnodelogger",
 	"description": "rdapp node logger",
 	"version": "1.0.0",
-	"publisher": "rdapp",
+	"publisher": "jkmchinese",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
