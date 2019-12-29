@@ -59,7 +59,7 @@ Initial release of rdappnodelogger
 
 ---
 
-You're more than welcome to participate in the development of the extension by creating pull requests and submitting issues, link of the project in github: https://github.com/Chakroun-Anas/turbo-console-log
+You're more than welcome to participate in the development of the extension by creating pull requests and submitting issues, link of the project in github: https://github.com/jkmchinese/rdappnodelogger.git
 
 ## Contact
 
