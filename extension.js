@@ -18,7 +18,7 @@ async function logMsg(level) {
 	}
 
 	await editor.edit(editBuilder => {
-		const logMsg = `logger.${level}(\`\${trace()}:${selectedText}:%o\`, ${selectedText});`;
+		const logMsg = `logger.${level}(\`\${trace()}:${selectedText}:%j\`, ${selectedText});`;
 
 		let nextLine = editor.selection.active.line + 1;
 		let whiteSpace = "";
