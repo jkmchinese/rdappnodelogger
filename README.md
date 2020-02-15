@@ -51,9 +51,10 @@ The extension rely on node project and using winston logger!!!
 
 ---
 
-### 1.0.0
+### 1.0.x
 
-Initial release of rdappnodelogger
+- Initial release of rdappnodelogger.
+- View CHANGELOG for more detail.
 
 ## Participate
 
