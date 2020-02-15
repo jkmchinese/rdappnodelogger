@@ -2,7 +2,7 @@
 	"name": "rdappnodelogger",
 	"displayName": "rdappnodelogger",
 	"description": "rdapp node logger",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"publisher": "jkmchinese",
 	"engines": {
 		"vscode": "^1.41.0"
